@@ -1,0 +1,27 @@
+{
+  "name": "backend-blacksight",
+  "version": "1.0.0",
+  "description": "backend for blacksight",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon Server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "*",
+    "express": "*",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "*",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
+  },
+  "author": "JH",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
