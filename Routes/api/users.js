@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
+const passport = require('passport');
 
 //Load User model
 const User = require('../../Models/User');
@@ -77,4 +78,11 @@ router.post('/login', (req, res) => {
             }); 
         });
     });
+
+// @route 
+//Return current user
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.json(req.user);
+}); 
+
 module.exports = router;
