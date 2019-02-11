@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 
 //Load User model
-const User = require('../../Models/User')
+const User = require('../../Models/User');
 
 router.get('/test', (req, res) => res.json({msg:"Users works"
 }));

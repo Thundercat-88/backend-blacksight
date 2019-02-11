@@ -23,6 +23,7 @@ mongoose
 app.use(passport.initialize());
 
 //Passport config
+require('./config/passport')(passport);
 
 app.use('/api/users', users);
 app.use('/api/profile', profile);
@@ -35,6 +36,3 @@ app.listen(port, () =>{
     console.log(`Server started on port ${port}`);
 });
 
-//require('./Routes/api/SignIn')(app);
-
-//module.exports = app;
