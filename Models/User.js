@@ -1,14 +1,31 @@
-var mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var UserSchema = new mongoose.Schema({
+//Create Schema
+const UserSchema = new Schema({
     userName: {
         type: String,
-        default: ''
+        default: '',
+        required: true
+    },
+    email: {
+        type: String,
+        default: '',
+        required: true
     },
     password: {
         type: String,
-        default: ''
+        default: '',
+        required: true
+    },
+    avatar: {
+        type: String,
+        default: '',
+        required: false
+    },
+    date: {
+        type: Date,
+        default: Date.now
     },
     isBanned: {
         type: Boolean,
@@ -16,12 +33,5 @@ var UserSchema = new mongoose.Schema({
     }
 });
 
-UserSchema.methods.generateHash = function(password){
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
 
-UserSchema.methods.validPassword = function(password){
-    return bcrypt.compareSync(password, this.password);
-};
-
-module.exports = mongoose.model('User', UserSchema);
+module.exports = User = mongoose.model('User', UserSchema);
