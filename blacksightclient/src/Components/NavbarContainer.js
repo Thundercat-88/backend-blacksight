@@ -1,5 +1,5 @@
 import React from 'react'
-import NavItem from './navlink';
+import NavItem from './navlink'
 import styled from '@emotion/styled'
 import marquee from './marquee.css'
 
@@ -17,7 +17,7 @@ const Icon = styled.li`
     height:48px;
     //width: 100px;
 `
-const Login = styled.li`
+const Logout = styled.li`
     color: white;
     float: right;
     text-align: center;
@@ -31,7 +31,7 @@ const Scroll = styled.li`
     margin-right: 10px;
 `
 
-class Navbar extends React.Component {
+class NavbarContainer extends React.Component {
 render(){
         return (
             <Navcontainer>
@@ -42,10 +42,10 @@ render(){
                 <NavItem travel='/users' label='Users' />
                 <NavItem travel='/about' label='About' />
 
-                <Login><NavItem travel='/login' label='Login'/></Login>
+                <Logout><NavItem travel='/logout' label='Logout'/></Logout>
                 <Scroll><p class='marquee'>INSERT AWESOME BANNER MESSAGE HERE PLZ</p></Scroll>               
             </Navcontainer>           
         );
     }}
 
-export default Navbar
+export default NavbarContainer

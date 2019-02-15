@@ -1,0 +1,7 @@
+.landingImage {
+    position: relative;
+    background: url('../images/showcase.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+  }
