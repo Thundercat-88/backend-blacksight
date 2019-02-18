@@ -6,7 +6,9 @@ class LandingPage extends Component {
   render() {
     return (   
         <div className='landingImage'>   
-            
+          <div className="dark-overlay landing-inner text-light">       
+  
+          </div>
         </div>
     )
   }

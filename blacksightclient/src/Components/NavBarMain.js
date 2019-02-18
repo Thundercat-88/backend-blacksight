@@ -6,7 +6,6 @@ import Dashboard from '../Pages/Dashboard'
 import About from '../Pages/About'
 import Devices from '../Pages/Devices'
 import Users from '../Pages/Users'
-import Login from '../Pages/Login'
 
 class NavBarMain extends Component {
   render() {
