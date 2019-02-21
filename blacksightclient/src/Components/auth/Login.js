@@ -1,5 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import { connect } from 'react-redux'
+import classnames from 'classnames'
+import { loginUser } from '../../Actions/authActions'
 
 const Heading = styled("h1")`
   color: ${props => props.fg};
@@ -50,7 +54,7 @@ const Label = styled("label")`
 padding-right: 10px;
 `
 
-class ShowLogin extends React.Component { 
+class Login extends React.Component { 
     constructor(){
         super();
         this.state = {
@@ -63,6 +67,17 @@ class ShowLogin extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+componentWillReceiveProps(nextProps) {
+    if(nextProps.auth.isAuthenticated) {
+        this.props.history.push('/Home')
+    }
+
+
+    if(nextProps.errors) {
+        this.setState({errors: nextProps.errors});
+    }
+}
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -71,7 +86,8 @@ class ShowLogin extends React.Component {
             password: this.state.password,
         };
 
-        console.log(user);
+        this.props.loginUser(user);
+
     }
 
     onChange(e) {
@@ -79,14 +95,19 @@ class ShowLogin extends React.Component {
     }
 
     render () {
+        const { errors } = this.state;
+
         return(
          <Box>
             <LoginBox onSubmit={this.onSubmit}>
                 <Heading fg="black"/>Blacksight Login<Heading/> 
                 <div>                    
                 <Label></Label>
-                <LoginForm 
+                <LoginForm
                   type="text"
+                  className={classnames('errors', {
+                      'is-invalid': errors.userName
+                  })}
                   placeholder="Username"
                   name="userName"
                   value={this.state.userName} 
@@ -94,6 +115,9 @@ class ShowLogin extends React.Component {
                 <Label></Label>
                 <LoginForm 
                   type="password" 
+                  className={classnames('errors', {
+                    'is-invalid': errors.password
+                })}
                   placeholder="Password"
                   name="password"
                   value={this.state.password}
@@ -105,5 +129,15 @@ class ShowLogin extends React.Component {
         )        
     }
 }
+Login.propTypes = {
+        loginUser: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired,
+        errors: PropTypes.object.isRequired
+}
 
-export default ShowLogin;
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, { loginUser })(Login);

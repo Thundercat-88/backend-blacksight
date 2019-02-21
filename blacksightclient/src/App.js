@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
-import NavbarLanding from './Components/NavbarLanding'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+// Auth
+import jwt_decode from 'jwt-decode'
+import setAuthToken from './Utils/setAuthToken'
+import { setCurrentUser } from './Actions/authActions'
+
+import { Provider } from 'react-redux'
+import store from './store'
+//Pages and components
+import NavbarLanding from './Components/NavbarLanding'
 import LandingPage from './Components/Landing'
 import Login from './Components/auth/Login'
 import Footer from './Components/Footer'
 
+// Check for token
+if(localStorage.jwttoken) {
+    // Set auth token header auth
+    setAuthToken(localStorage.jwttoken);
+    // Decode token and get user ingo and expiration
+    const decoded = jwt_decode(localStorage.jwttoken);
+    store.dispatch(setCurrentUser(decoded)); 
+}
+
+
 class App extends Component {
   render() {
     return (  
+      <Provider store={ store }>
         <Router>
           <div>
         <NavbarLanding />
@@ -16,6 +35,7 @@ class App extends Component {
         <Footer />
           </div>
         </Router>
+      </Provider>
     )
   }
 }
