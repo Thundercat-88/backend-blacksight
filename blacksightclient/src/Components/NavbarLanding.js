@@ -1,12 +1,16 @@
 import React from 'react'
 import NavItem from './navlink'
 import styled from '@emotion/styled'
-
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { logoutUser } from '../Actions/authActions'
+// eslint-disable-next-line
+import marquee from './marquee.css'
 
 const Navcontainer = styled.div`
     //position: fixed;
-    //top: 0;
-    //left: 0;
+    top: 0;
+    left: 0;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -28,15 +32,62 @@ const Login = styled.li`
     border-left:1px solid #bbb;
     background-color: SeaGreen;
 `
+const Logout = styled.li`
+    color: white;
+    float: right;
+    text-align: center;
+    font-size:16pt;
+    border-left:1px solid #bbb;
+    background-color: #FF0000;
+`
+const Scroll = styled.li`
+    color: white;
+    float: right;
+    margin-right: 10px;
+`
+
 class NavbarLanding extends React.Component {
+    onLogoutCLick(e) {
+        e.preventDefault();
+        this.props.logoutUser();
+    }
+
 render(){
+    const { isAuthenticated } = this.props.auth;
+
+    const authLinks = (
+        <div>    
+        <NavItem travel='/dash' label='Dashboard'/>
+        <NavItem travel='/devices' label='Devices' />
+        <NavItem travel='/users' label='Users' />
+        <NavItem travel='/about' label='About' />
+        <Logout onClick={this.onLogoutCLick.bind(this)}><NavItem travel='/' label='Logout' /></Logout>
+        <Scroll><p class='marquee'>INSERT AWESOME BANNER MESSAGE HERE PLZ</p></Scroll> 
+        </div>      
+    );
+
+    const guestLinks = ( 
+        <div>
+        <Login><NavItem travel='/login' label='Login'/></Login>      
+        </div>
+    );
+
         return (
-            <Navcontainer>
+            <Navcontainer>    
                 <Icon><img src={"./favicon.ico"} alt={"Icon"} style={{ width: 50, height: 45 }} /></Icon>
-              
-                <Login><NavItem travel='/login' label='Login'/></Login>              
+                {isAuthenticated ? authLinks : guestLinks}                               
             </Navcontainer>           
         );
     }
 }
-export default NavbarLanding;
+
+NavbarLanding.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    auth:state.auth
+})
+
+export default connect(mapStateToProps, { logoutUser })(NavbarLanding);

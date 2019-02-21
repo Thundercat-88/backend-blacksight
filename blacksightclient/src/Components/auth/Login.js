@@ -69,7 +69,7 @@ class Login extends React.Component {
 
 componentWillReceiveProps(nextProps) {
     if(nextProps.auth.isAuthenticated) {
-        this.props.history.push('/Home')
+        this.props.history.push('/dash')
     }
 
 

@@ -8,7 +8,7 @@ const Link = styled(NavLink)`
   color:white;
   font-size:16pt;
 `
-const Li = styled.li`
+const Mi = styled.li`
     width: 100px;
     height:48px;
     float: left;
@@ -23,9 +23,10 @@ const Li = styled.li`
         color:black;
     }
 `
+
 const Navitem = props => {
   return (     
-    <Link to={props.travel}><Li>{props.label}</Li></Link>   
+    <Link to={props.travel}><Mi>{props.label}</Mi></Link>   
   )
 }
 
