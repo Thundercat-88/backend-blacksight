@@ -46,7 +46,7 @@ const Scroll = styled.li`
     margin-right: 10px;
 `
 
-class NavbarLanding extends React.Component {
+class Navbar extends React.Component {
     onLogoutCLick(e) {
         e.preventDefault();
         this.props.logoutUser();
@@ -81,7 +81,7 @@ render(){
     }
 }
 
-NavbarLanding.propTypes = {
+Navbar.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
@@ -90,4 +90,4 @@ const mapStateToProps = (state) => ({
     auth:state.auth
 })
 
-export default connect(mapStateToProps, { logoutUser })(NavbarLanding);
+export default connect(mapStateToProps, { logoutUser })(Navbar);

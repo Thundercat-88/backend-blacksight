@@ -15,8 +15,8 @@ const TextField = ({
 }) => {
     
   return (  
-    <Form>
-        <Form.Field
+    <div>
+        <Form.Input
             fluid
             label={label}
             name={name}     
@@ -26,12 +26,13 @@ const TextField = ({
             info={info}
             onChange={onChange}
             disabled={disabled}  
+    
              />    
             <Message 
             errorheader='Action Forbidden'
             content={error}
              />     
-    </Form>
+    </div>
   )
 }
 

@@ -102,7 +102,7 @@ componentWillReceiveProps(nextProps) {
 
                 <TextField
                     placeholder="Username"
-                    name="Username"
+                    name="userName"
                     label="Username"
                     type="text"
                     value={this.state.userName}
@@ -111,7 +111,7 @@ componentWillReceiveProps(nextProps) {
                 />
                 <TextField
                     placeholder="Password"
-                    name="Password"
+                    name="password"
                     label="Password"
                     type="password"
                     value={this.state.password}
