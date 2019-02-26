@@ -15,6 +15,7 @@ const Mi = styled.li`
     border-right:1px solid #bbb;
     text-align: center;
     padding: 10px;
+    //background-color: #fff;
     :hover{
         background-color:black;
     }

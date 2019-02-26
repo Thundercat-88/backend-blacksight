@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
-import classnames from 'classnames'
 import { loginUser } from '../../Actions/authActions'
+import TextField from '../common/TextField.js'
 
 const Heading = styled("h1")`
   color: ${props => props.fg};
@@ -26,12 +26,6 @@ const LoginBox = styled("form")`
     display: inline-block;
     width: 400px;
 `
-const LoginForm = styled("input")`
-  background-color: ${props => props.bg};
-  color: ${props => props.fg};
-  width: 80%;
-  margin: 8px 0;
-`;
 const Submit = styled("button")`
     text
     width: 20%;
@@ -50,9 +44,6 @@ const Submit = styled("button")`
         color:black;
     }
 `
-const Label = styled("label")`
-padding-right: 10px;
-`
 
 class Login extends React.Component { 
     constructor(){
@@ -66,6 +57,12 @@ class Login extends React.Component {
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
+
+componentDidMount() {
+    if(this.props.auth.isAuthenticated) {
+        this.props.history.push('/dash');
+    }
+}
 
 componentWillReceiveProps(nextProps) {
     if(nextProps.auth.isAuthenticated) {
@@ -91,7 +88,7 @@ componentWillReceiveProps(nextProps) {
     }
 
     onChange(e) {
-        this.setState({[e.target.userName]: e.target.value });
+        this.setState({[e.target.name]: e.target.value });
     }
 
     render () {
@@ -100,30 +97,28 @@ componentWillReceiveProps(nextProps) {
         return(
          <Box>
             <LoginBox onSubmit={this.onSubmit}>
-                <Heading fg="black"/>Blacksight Login<Heading/> 
-                <div>                    
-                <Label></Label>
-                <LoginForm
-                  type="text"
-                  className={classnames('errors', {
-                      'is-invalid': errors.userName
-                  })}
-                  placeholder="Username"
-                  name="userName"
-                  value={this.state.userName} 
-                  onChange={e => this.setState({ userName: e.target.value })}/>                                                                      
-                <Label></Label>
-                <LoginForm 
-                  type="password" 
-                  className={classnames('errors', {
-                    'is-invalid': errors.password
-                })}
-                  placeholder="Password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={e => this.setState({ password: e.target.value })}/>                 
-                <Submit onSubmit={this.onSubmit}>Submit</Submit>
-                  </div>
+
+                <Heading fg="black"/>Blacksight Login<Heading/>    
+
+                <TextField
+                    placeholder="Username"
+                    name="Username"
+                    label="Username"
+                    type="text"
+                    value={this.state.userName}
+                    onChange={this.onChange}
+                    errors={errors.userName}
+                />
+                <TextField
+                    placeholder="Password"
+                    name="Password"
+                    label="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    errors={errors.password}
+                />                             
+                <Submit onSubmit={this.onSubmit}>Submit</Submit>           
             </LoginBox>  
             </Box>
         )        

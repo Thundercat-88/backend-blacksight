@@ -57,7 +57,7 @@ render(){
 
     const authLinks = (
         <div>    
-        <NavItem travel='/dash' label='Dashboard'/>
+        <NavItem travel='/dash' label='Dash'/>
         <NavItem travel='/devices' label='Devices' />
         <NavItem travel='/users' label='Users' />
         <NavItem travel='/about' label='About' />
