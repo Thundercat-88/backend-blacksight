@@ -96,7 +96,7 @@ componentWillReceiveProps(nextProps) {
         return(
         <Container>
             <LoginBox onSubmit={this.onSubmit}>
-                <Heading fg="black"/>Blacksight Login<Heading/>    
+                <Heading fg="black"/>Blacksight Login<Heading/>   
                     <TextField
                         placeholder="Username"
                         name="userName"

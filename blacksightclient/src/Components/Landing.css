@@ -1,8 +1,8 @@
 .landingImage {
     position: flex;
-    background: url('../images/showcase.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: url('../images/LogoV1.png') no-repeat;
+    background-size: contain;
+    background-position: center top;
     height: 100vh;
   }
 

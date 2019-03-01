@@ -74,7 +74,7 @@ render(){
 
         return (
             <Navcontainer>    
-                <Icon><img src={"./favicon.ico"} alt={"Icon"} style={{ width: 50, height: 45 }} /></Icon>
+                <Icon><img src={"./icon.png"} alt={"Icon"} style={{ width: 50, height: 45 }} /></Icon>
                 {isAuthenticated ? authLinks : guestLinks}                               
             </Navcontainer>           
         );
