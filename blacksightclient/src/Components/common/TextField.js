@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Form, Message } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 
 const TextField = ({
     name,
     placeholder,
     value,
     label,
-    error,
+    err,
     info,
     type,
     onChange,
@@ -15,7 +15,8 @@ const TextField = ({
 }) => {
     
   return (  
-    <div>
+    <Form loading>
+      <Form err>
         <Form.Input
             fluid
             label={label}
@@ -26,13 +27,10 @@ const TextField = ({
             info={info}
             onChange={onChange}
             disabled={disabled}  
-    
-             />    
-            <Message 
-            errorheader='Action Forbidden'
-            content={error}
-             />     
-    </div>
+            error={err}
+             />       
+        </Form>
+    </Form>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import styled from '@emotion/styled'
 // Auth
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './Utils/setAuthToken'
@@ -34,23 +35,37 @@ if(localStorage.jwttoken) {
       window.location.href = '/login';
     }
 }
-
-
+const AppContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(130,150,150,0.8);
+  `
+const PageContainer = styled.div`
+    padding-top: 48px;
+    padding-bottom: 48px;
+    //overflow-y: scroll;
+    
+`
 class App extends Component {
   render() {
     return (  
       <Provider store={store}>
         <Router>
-          <div>
+          <AppContainer>
             <Navbar />
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path='/dash' component={Dashboard} />
-            <Route exact path='/devices' component={Devices} />
-            <Route exact path='/users' component={Users} />
-            <Route exact path='/about' component={About} />
+              <PageContainer>
+                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path='/dash' component={Dashboard} />
+                <Route exact path='/devices' component={Devices} />
+                <Route exact path='/users' component={Users} />
+                <Route exact path='/about' component={About} />
+              </PageContainer>
             <Footer />
-          </div>
+          </AppContainer>
         </Router>
       </Provider>
     )

@@ -7,34 +7,30 @@ import TextField from '../common/TextField.js'
 
 const Heading = styled("h1")`
   color: ${props => props.fg};
-  text-align: center;
-`;
-const Box = styled("div")`
+  font-size: 2.5em;
+  font-weight: bold;
+`
+const Container = styled("div")`
     width: 100%;
     height: 100%;
     margin: 0 auto;
     text-align: center;
-    background-color: #000;
     padding-top:50px;
     padding-bottom:50px;
 `
-
 const LoginBox = styled("form")`
-    border-radius: 5px;
+    border-radius: 50%;
     background-color: #f2f2f2;
-    padding: 50px;
-    display: inline-block;
-    width: 400px;
+    padding: 80px;
+    display: inline-block;  
 `
 const Submit = styled("button")`
-    text
-    width: 20%;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
+    padding: 14px 40px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     :hover{
         background-color: #45a049;
@@ -42,6 +38,9 @@ const Submit = styled("button")`
     :active{
         background-color:SkyBlue;
         color:black;
+    }
+    :disabled{ 
+        
     }
 `
 
@@ -95,32 +94,30 @@ componentWillReceiveProps(nextProps) {
         const { errors } = this.state;
 
         return(
-         <Box>
+        <Container>
             <LoginBox onSubmit={this.onSubmit}>
-
                 <Heading fg="black"/>Blacksight Login<Heading/>    
-
-                <TextField
-                    placeholder="Username"
-                    name="userName"
-                    label="Username"
-                    type="text"
-                    value={this.state.userName}
-                    onChange={this.onChange}
-                    errors={errors.userName}
-                />
-                <TextField
-                    placeholder="Password"
-                    name="password"
-                    label="Password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                    errors={errors.password}
-                />                             
-                <Submit onSubmit={this.onSubmit}>Submit</Submit>           
+                    <TextField
+                        placeholder="Username"
+                        name="userName"
+                        label="Username"
+                        type="text"
+                        value={this.state.userName}
+                        onChange={this.onChange}
+                        error={errors.userName}
+                    />
+                    <TextField
+                        placeholder="Password"
+                        name="password"
+                        label="Password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                        error={errors.password}
+                    />                             
+                    <Submit>Submit</Submit>           
             </LoginBox>  
-            </Box>
+        </Container>
         )        
     }
 }

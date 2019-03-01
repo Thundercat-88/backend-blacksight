@@ -8,7 +8,7 @@ import { logoutUser } from '../Actions/authActions'
 import marquee from './marquee.css'
 
 const Navcontainer = styled.div`
-    //position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     margin: 0;
