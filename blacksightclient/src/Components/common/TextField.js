@@ -1,13 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Form } from 'semantic-ui-react'
+import styled from '@emotion/styled'
+
+const Divider = styled("div")`
+  padding: 10px;
+  float: left;
+`
 
 const TextField = ({
     name,
     placeholder,
     value,
     label,
-    err,
+    error,
     info,
     type,
     onChange,
@@ -15,22 +21,21 @@ const TextField = ({
 }) => {
     
   return (  
-    <Form loading>
-      <Form err>
+    <Divider>
         <Form.Input
             fluid
             label={label}
             name={name}     
             type={type}
             placeholder={placeholder}
+            error
             value={value}
             info={info}
             onChange={onChange}
-            disabled={disabled}  
-            error={err}
-             />       
-        </Form>
-    </Form>
+            disabled={disabled}             
+             />      
+            
+    </Divider> 
   )
 }
 

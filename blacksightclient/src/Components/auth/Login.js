@@ -4,12 +4,8 @@ import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 import { loginUser } from '../../Actions/authActions'
 import TextField from '../common/TextField.js'
+import { Form } from 'semantic-ui-react'
 
-const Heading = styled("h1")`
-  color: ${props => props.fg};
-  font-size: 2.5em;
-  font-weight: bold;
-`
 const Container = styled("div")`
     width: 100%;
     height: 100%;
@@ -19,8 +15,8 @@ const Container = styled("div")`
     padding-bottom:50px;
 `
 const LoginBox = styled("form")`
-    border-radius: 50%;
-    background-color: #f2f2f2;
+    border-radius: 10px;
+    background-color: yellow;
     padding: 80px;
     display: inline-block;  
 `
@@ -96,7 +92,7 @@ componentWillReceiveProps(nextProps) {
         return(
         <Container>
             <LoginBox onSubmit={this.onSubmit}>
-                <Heading fg="black"/>Blacksight Login<Heading/>   
+                <Form.Group widths='equal'> 
                     <TextField
                         placeholder="Username"
                         name="userName"
@@ -114,7 +110,8 @@ componentWillReceiveProps(nextProps) {
                         value={this.state.password}
                         onChange={this.onChange}
                         error={errors.password}
-                    />                             
+                    />                       
+                    </Form.Group>      
                     <Submit>Submit</Submit>           
             </LoginBox>  
         </Container>

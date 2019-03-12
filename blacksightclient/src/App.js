@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import styled from '@emotion/styled'
 // Auth
 import jwt_decode from 'jwt-decode'
@@ -8,7 +8,9 @@ import { setCurrentUser, logoutUser } from './Actions/authActions'
 // Redux
 import { Provider } from 'react-redux'
 import store from './store'
-//Pages and components
+// Private routes
+import PrivateRoute from './Components/common/PrivateRoute.js'
+// Pages and components
 import Navbar from './Components/Navbar'
 import LandingPage from './Components/Landing'
 import Login from './Components/auth/Login'
@@ -16,7 +18,7 @@ import Footer from './Components/Footer'
 import Dashboard from '../src/Pages/Dashboard'
 import About from '../src/Pages/About'
 import Devices from '../src/Pages/Devices'
-import Users from '../src/Pages/Users'
+import Profile from './Pages/Profile'
 
 // Check for token
 if(localStorage.jwttoken) {
@@ -59,10 +61,12 @@ class App extends Component {
               <PageContainer>
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path='/dash' component={Dashboard} />
-                <Route exact path='/devices' component={Devices} />
-                <Route exact path='/users' component={Users} />
-                <Route exact path='/about' component={About} />
+                  <Switch>
+                    <PrivateRoute exact path='/dash' component={Dashboard} />
+                    <PrivateRoute exact path='/devices' component={Devices} />
+                    <PrivateRoute exact path='/profile' component={Profile} />
+                    <PrivateRoute exact path='/about' component={About} />
+                </Switch>
               </PageContainer>
             <Footer />
           </AppContainer>

@@ -7,7 +7,7 @@ const Heading = styled("h1")`
   text-align: center;
 `;
 
-class Users extends Component { 
+class Profile extends Component { 
 
     render () {
         return(
@@ -15,4 +15,4 @@ class Users extends Component {
         ) 
     }
 }
-export default Users
+export default Profile

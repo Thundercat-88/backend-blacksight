@@ -59,7 +59,7 @@ render(){
         <div>    
         <NavItem travel='/dash' label='Dash'/>
         <NavItem travel='/devices' label='Devices' />
-        <NavItem travel='/users' label='Users' />
+        <NavItem travel='/profile' label='Profile' />
         <NavItem travel='/about' label='About' />
         <Logout onClick={this.onLogoutCLick.bind(this)}><NavItem travel='/' label='Logout' /></Logout>
         <Scroll><p class='marquee'>INSERT AWESOME BANNER MESSAGE HERE PLZ</p></Scroll> 
