@@ -7,7 +7,7 @@ import TextField from '../common/TextField.js'
 import { Form } from 'semantic-ui-react'
 
 const Container = styled("div")`
-    width: 100%;
+    width: 50%;
     height: 100%;
     margin: 0 auto;
     text-align: center;
@@ -17,8 +17,7 @@ const Container = styled("div")`
 const LoginBox = styled("form")`
     border-radius: 10px;
     background-color: yellow;
-    padding: 80px;
-    display: inline-block;  
+    padding: 20px;
 `
 const Submit = styled("button")`
     background-color: #4CAF50;
