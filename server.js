@@ -7,7 +7,6 @@ const users = require('./Routes/api/users');
 const profile = require('./Routes/api/profile');
 const posts = require('./Routes/api/posts');
 
-
 //Body parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -35,4 +34,3 @@ const port = 5001;
 app.listen(port, () =>{
     console.log(`Server started on port ${port}`);
 });
-
