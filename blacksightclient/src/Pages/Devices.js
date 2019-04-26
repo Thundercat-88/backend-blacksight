@@ -3,7 +3,7 @@ import T1 from '../Components/Style/Table'
 import H1 from '../Components/Style/Header'
 import B1 from'../Components/Style/Button'
 import { Container, Segment } from 'semantic-ui-react'
-import Scan from'../scan'
+
 
 class Devices extends Component {
     render() {
@@ -12,7 +12,7 @@ class Devices extends Component {
                 <H1 label='Devices'/>        
                 <Container>
                 <Segment inverted>
-                <B1 onClick={Scan} label='Start Scan' color='green'/>
+                <B1 label='Start Scan' color='green'/>
                 <B1 label='Stop Scan' color='red' />
                 <B1 label='Reset Scan' color='yellow' />
                 </Segment>
