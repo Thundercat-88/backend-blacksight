@@ -25,6 +25,7 @@
     "passport-jwt": "^4.0.0",
     "prefix": "^1.0.0",
     "python-shell": "^1.0.7",
+    "semantic-ui-css": "^2.4.1",
     "validator": "^10.11.0"
   },
   "author": "JH",
