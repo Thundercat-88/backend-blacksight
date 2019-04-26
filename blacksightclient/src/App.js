@@ -20,6 +20,7 @@ import About from '../src/Pages/About'
 import Devices from '../src/Pages/Devices'
 import Profile from './Pages/Profile'
 
+
 // Check for token
 if(localStorage.jwttoken) {
     // Set auth token header auth

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../App.css';
 import H1 from '../Components/Style/Header'
 import P1 from '../Components/Style/Paragraph'
 
