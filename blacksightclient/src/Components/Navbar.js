@@ -18,6 +18,7 @@ const Navcontainer = styled.div`
     overflow: hidden;
     background-color: #333;
     width: 100%;
+    z-index: 9999;
   `
 const Icon = styled.li`
     float: left;

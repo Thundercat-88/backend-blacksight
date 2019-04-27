@@ -3,7 +3,12 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const NetworkSchema = new Schema({
-    ip: {
+    host_name: {
+        type: String,
+        default: '',
+        required: false
+    },
+    host_ip: {
         type: String,
         default: '',
         required: false

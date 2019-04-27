@@ -5,10 +5,11 @@ var mongoose = require('mongoose');
 const passport = require('passport');
 const users = require('./Routes/api/users');
 const profile = require('./Routes/api/profile');
+const networkData = require('./Routes/api/networkData');
 const posts = require('./Routes/api/posts');
 //const py = require('./pythonScripts/getIP')
 //const scan = require('./pythonScripts/scan ARP')
-//const test = require('./test')
+const test = require('./test')
 
 
 //Body parser
@@ -31,6 +32,7 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
+app.use('/api/networkdata', networkData);
 
 // port to run on
 const port = 50002;
