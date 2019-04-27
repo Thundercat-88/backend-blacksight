@@ -6,6 +6,10 @@ const passport = require('passport');
 const users = require('./Routes/api/users');
 const profile = require('./Routes/api/profile');
 const posts = require('./Routes/api/posts');
+//const py = require('./pythonScripts/getIP')
+//const scan = require('./pythonScripts/scan ARP')
+//const test = require('./test')
+
 
 //Body parser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -34,3 +38,5 @@ const port = 5001;
 app.listen(port, () =>{
     console.log(`Server started on port ${port}`);
 });
+
+

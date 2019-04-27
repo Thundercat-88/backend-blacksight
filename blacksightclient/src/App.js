@@ -20,6 +20,7 @@ import About from '../src/Pages/About'
 import Devices from '../src/Pages/Devices'
 import Profile from './Pages/Profile'
 
+
 // Check for token
 if(localStorage.jwttoken) {
     // Set auth token header auth
@@ -44,11 +45,11 @@ const AppContainer = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(130,150,150,0.8);
+    overflow-y: auto;
   `
-const PageContainer = styled.div`
+const RouteContainer = styled.div`
     padding-top: 48px;
     padding-bottom: 48px;
-    //overflow-y: scroll;
     
 `
 class App extends Component {
@@ -58,7 +59,7 @@ class App extends Component {
         <Router>
           <AppContainer>
             <Navbar />
-              <PageContainer>
+              <RouteContainer>
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/login" component={Login} />
                   <Switch>
@@ -67,7 +68,7 @@ class App extends Component {
                     <PrivateRoute exact path='/profile' component={Profile} />
                     <PrivateRoute exact path='/about' component={About} />
                 </Switch>
-              </PageContainer>
+              </RouteContainer>
             <Footer />
           </AppContainer>
         </Router>
