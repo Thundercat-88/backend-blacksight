@@ -4,27 +4,23 @@ import { Table, Container } from 'semantic-ui-react'
 const colors = [
   'grey'
 ]
-const T1 = () => (
+const T1 = props => (
 <Container>
     {colors.map(color => (
       <Table color={color} key={color} inverted>
         <Table.Header>
           <Table.Row>
+            <Table.HeaderCell>Device Name</Table.HeaderCell>
             <Table.HeaderCell>IP Address</Table.HeaderCell>
             <Table.HeaderCell>MAC Address</Table.HeaderCell>
-            <Table.HeaderCell>Device Name</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-
         <Table.Body>
           <Table.Row>
-            <Table.Cell>192.168.0.1</Table.Cell>
-            <Table.Cell>hb:72:j3:yg:82</Table.Cell>
-            <Table.Cell>PC1</Table.Cell>
+            <Table.Cell>{props.host}</Table.Cell>
+            <Table.Cell>{props.ip}</Table.Cell>
+            <Table.Cell>{props.mac}</Table.Cell>
           </Table.Row>
-         
-          
-
         </Table.Body>
       </Table>
     ))}

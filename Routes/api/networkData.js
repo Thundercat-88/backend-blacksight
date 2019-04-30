@@ -6,9 +6,9 @@ const Network = require('../../Models/Network');
 
 router.get('/', (req, res) => {
     Network.find({})
-    .then ((result,error) => { 
+    .then ((data,error) => { 
         if(error) throw error;
-        res.send(result)
+        res.send(data)
     })
     .catch(error => console.error(error))
 }

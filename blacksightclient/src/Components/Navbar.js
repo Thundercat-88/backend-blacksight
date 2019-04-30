@@ -69,6 +69,7 @@ render(){
 
     const guestLinks = ( 
         <div>
+        <Login><NavItem travel='/register' label='Register'/></Login>   
         <Login><NavItem travel='/login' label='Login'/></Login>      
         </div>
     );

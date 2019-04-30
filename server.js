@@ -8,8 +8,9 @@ const profile = require('./Routes/api/profile');
 const networkData = require('./Routes/api/networkData');
 const posts = require('./Routes/api/posts');
 //const py = require('./pythonScripts/getIP')
-//const scan = require('./pythonScripts/scan ARP')
-const test = require('./test')
+const scan = require('./pythonScripts/scan ARP')
+const adapterData = require('./getAdapterData')
+//const portData = require('./getPortData')
 
 
 //Body parser

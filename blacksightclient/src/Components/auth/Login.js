@@ -35,7 +35,6 @@ const Submit = styled("button")`
         color:black;
     }
     :disabled{ 
-        
     }
 `
 

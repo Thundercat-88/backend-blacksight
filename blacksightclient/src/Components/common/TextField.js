@@ -11,7 +11,9 @@ const TextField = ({
     info,
     type,
     onChange,
-    disabled
+    disabled,
+    icon,
+    iconPosition
 }) => {
     
   return (  
@@ -25,7 +27,9 @@ const TextField = ({
             value={value}
             info={info}
             onChange={onChange}
-            disabled={disabled}             
+            disabled={disabled}
+            icon={icon}
+            iconPosition={iconPosition}             
              />      
             
   )

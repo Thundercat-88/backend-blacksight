@@ -14,6 +14,7 @@ import PrivateRoute from './Components/common/PrivateRoute.js'
 import Navbar from './Components/Navbar'
 import LandingPage from './Components/Landing'
 import Login from './Components/auth/Login'
+import Register from './Components/auth/Register'
 import Footer from './Components/Footer'
 import Dashboard from '../src/Pages/Dashboard'
 import About from '../src/Pages/About'
@@ -62,6 +63,7 @@ class App extends Component {
               <RouteContainer>
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
                   <Switch>
                     <PrivateRoute exact path='/dash' component={Dashboard} />
                     <PrivateRoute exact path='/devices' component={Devices} />
