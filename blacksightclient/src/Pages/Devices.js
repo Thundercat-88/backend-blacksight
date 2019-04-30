@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import T1 from '../Components/Style/Table'
+import ScanTable from '../Components/Style/scanTable'
+import UserTable from '../Components/Style/userTable'
 import H1 from '../Components/Style/Header'
 import B1 from'../Components/Style/Button'
 import { Container, Segment, Table } from 'semantic-ui-react'
@@ -47,6 +49,8 @@ class Devices extends Component {
                 <B1 label='Reset Scan' color='yellow' />
                 </Segment>
                 <T1 host={host} ip={ip} mac={mac}/>
+                <ScanTable/>
+                <UserTable/>
                 </Container>
             </div>
         )
