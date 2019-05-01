@@ -1,8 +1,8 @@
 let {PythonShell} = require('python-shell');
-const pyshell = new PythonShell('./pythonScripts/adapterData.py');
+const pyshell = new PythonShell('./Scanning/pythonScripts/adapterData.py');
 
 //Load Network model
-const Network = require('./Models/Network');
+const Network = require('../Models/Network');
 
 pyshell.on('message', function (message) {
   // received a message sent from the Python script (a simple "print" statement)

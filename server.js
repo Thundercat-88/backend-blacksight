@@ -7,11 +7,10 @@ const users = require('./Routes/api/users');
 const profile = require('./Routes/api/profile');
 const networkData = require('./Routes/api/networkData');
 const posts = require('./Routes/api/posts');
-//const py = require('./pythonScripts/getIP')
-const scan = require('./pythonScripts/scan ARP')
-const adapterData = require('./getAdapterData')
-//const portData = require('./getPortData')
-
+//const py = require('./Scanning/pythonScripts/getIP')
+const scan = require('./Scanning/pythonScripts/scan ARP')
+const adapterData = require('./Scanning/getAdapterData')
+//const arpScanner = require('./Scanning/pythonScripts/scan ARP')
 
 //Body parser
 app.use(bodyParser.urlencoded({extended: false}));
