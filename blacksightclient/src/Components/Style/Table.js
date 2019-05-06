@@ -17,9 +17,9 @@ const T1 = props => (
         </Table.Header>
         <Table.Body>
           <Table.Row>
-            <Table.Cell>{props.host}</Table.Cell>
-            <Table.Cell>{props.ip}</Table.Cell>
-            <Table.Cell>{props.mac}</Table.Cell>
+            <Table.Cell content={props.host}></Table.Cell>
+            <Table.Cell content={props.ip}></Table.Cell>
+            <Table.Cell content={props.mac}></Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
